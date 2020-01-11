@@ -35,4 +35,4 @@
   * 某个类型里评价不错的课程
 
 * 初步构思的移动端界面
-  ![移动端界面](https://github.com/WxxShirley/FDU_Courses_QA/blob/master/imgs/前端预期效果.jpg.png)
+  ![移动端界面](https://github.com/WxxShirley/FDU_Courses_QA/blob/master/imgs/移动端效果图.png)
