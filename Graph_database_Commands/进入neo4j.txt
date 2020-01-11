@@ -1,0 +1,42 @@
+Shift+command+G - 进入制定目录
+
+Users/wu/Library/neo4j desktop/Application/neo4jDatabases/installation-3.5.12
+
+
+//导入节点 - 课程信息
+LOAD CSV WITH HEADERS FROM "file:///Course.csv" AS line
+MERGE (p:Course{cid:line.cid,title:line.title,rating:line.rating,school:line.school})
+
+//导入节点 - 课程类型
+LOAD CSV WITH HEADERS FROM "file:///Course_Type.csv" AS line
+MERGE (p:Course_Type{tid:toInteger(line.type_id),name:line.type_name})
+
+
+//导入关系 - 课程和对应的类型
+LOAD CSV WITH HEADERS FROM "file:///Course2Type.csv" AS line
+match (from:Course{cid:line.cid}), (to:Course_Type{tid:toInteger(line.type_id)})
+merge (from)-[r:is_type_of{cid:line.cid,tid:toInteger(line.type_id)}]->(to)
+
+
+//导入节点 - 教师
+LOAD CSV WITH HEADERS FROM "file:///Teacher.csv" AS line
+MERGE (p:Teacher{te_id:toInteger(line.tid),name:line.name})
+
+//导入关系 - 教师与对应的课程
+LOAD CSV WITH HEADERS FROM "file:///Teacher2Course.csv" AS line
+match (from:Teacher{te_id:toInteger(line.tid)}),(to:Course{cid:line.cid})
+merge (from)-[r:teach{te_id:toInteger(line.tid),cid:line.cid}]->(to)
+
+//导入节点 - 院系
+LOAD CSV WITH HEADERS FROM "file:///School.csv" AS line
+MERGE (p:School{sid:ToInteger(line.sid),name:line.name})
+
+//导入关系 - 学院开设的课程 一对多
+LOAD CSV WITH HEADERS FROM "file:///School2Course.csv" AS line
+match (from:School{sid:toInteger(line.sid)}),(to:Course{cid:line.cid})
+merge (from)-[r:set{sid:toInteger(line.sid),cid:line.cid}]->(to)
+
+//导入关系 - 教师所在的院系
+LOAD CSV WITH HEADERS FROM "file:///Teacher2School.csv" AS line
+match (from:Teacher{te_id:toInteger(line.tid)}),(to:School{sid:toInteger(line.sid)})
+merge (from)-[r:belong{te_id:toInteger(line.tid),sid:line.sid}] ->(to)
