@@ -42,6 +42,7 @@
   * 数据规模较小，可从教务网站上爬取更多课程信息，导入图数据库中
   * 提供的查询累问题规模略小，可以在 `questions.py` 里增加新的问题并训练，在 `questionTemplate.py` 里增加该问题对应的查询思路即可
 
+
 ## 实现思路
 
 ![项目工作流程](https://github.com/WxxShirley/FDU_Courses_QA/blob/master/imgs/项目工作流程.png)
@@ -66,3 +67,36 @@
     ![知识图谱](https://github.com/WxxShirley/FDU_Courses_QA/blob/master/imgs/知识图谱.png)
 
 * 返回结果
+
+
+## 代码结构
+
+* `questions.py` 问题训练集
+
+* `Classifier.py` 基于朴素贝叶斯模型的问题分类器
+
+* `query.py` 图数据库查询
+
+* `questionProcess.py` 问题处理主函数
+
+* `questionTemplate.py` 问题模版、查询方法函数
+
+* `RunResults.ipynb` 所有模型运行结果（问题分类器、情感分析模型、问答系统运行情况）
+
+* `course_review` 课程评价文本情感分袖
+  * `review.csv` :公众号“复小七”推送中的课程评价文本数据
+  * `sentimentTrain.csv` : 使用snowNLP训练的情感分析模型
+  * `pos.txt`: 正样本文本数据
+  * `neg.txt`: 负样本文本数据
+
+* `course_ui` 使用Flutter开发的跨iOS和Android的App前端
+
+* `data` 课程信息数据
+  * `Course.csv`: 课程数据
+  * `Teacher.csv`: 教师数据
+  ···
+
+* `wordcloud` 课程评价文本词云
+  * `negative_reviews`:负样本词云
+  * `positive_reviews`:正样本词云
+
