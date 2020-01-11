@@ -20,6 +20,7 @@
    ![结果示例2](https://github.com/WxxShirley/FDU_Courses_QA/blob/master/imgs/运行结果示例2.png)
  
  
+ 
 ## 功能
 
 * 支持十类复旦选课相关的问题
@@ -41,6 +42,7 @@
 * 拓展
   * 数据规模较小，可从教务网站上爬取更多课程信息，导入图数据库中
   * 提供的查询累问题规模略小，可以在 `questions.py` 里增加新的问题并训练，在 `questionTemplate.py` 里增加该问题对应的查询思路即可
+
 
 
 ## 实现思路
@@ -67,6 +69,7 @@
     ![知识图谱](https://github.com/WxxShirley/FDU_Courses_QA/blob/master/imgs/知识图谱.png)
 
 * 返回结果
+
 
 
 ## 代码结构
@@ -100,3 +103,7 @@
   * `negative_reviews`:负样本词云
   * `positive_reviews`:正样本词云
 
+
+
+## 感谢
+本系统的实现思路参考`IrvingBei` 的 基于知识图谱的电影问答系统 
