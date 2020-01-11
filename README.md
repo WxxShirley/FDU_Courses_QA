@@ -16,5 +16,6 @@
 * 运行 *question_process* 文件，如改变不同的问题，修改main函数即可 
 
 * 结果示例 
-  ![结果示例](https://github.com/WxxShirley/FDU_Courses_QA/blob/master/imgs/运行结果示例.png)
+  * ![结果示例](https://github.com/WxxShirley/FDU_Courses_QA/blob/master/imgs/运行结果示例.png)
+  * ![结果示例2](https://github.com/WxxShirley/FDU_Courses_QA/blob/master/imgs/运行结果示例2.png)
   
